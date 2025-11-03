@@ -37,12 +37,6 @@ public class LoginPasswordUpdatePage extends AbstractPage {
     @FindBy(css = "div[class^='pf-v5-c-alert'], div[class^='alert-error']")
     private WebElement loginErrorMessage;
 
-    @FindBy(className = "kc-feedback-text")
-    private WebElement feedbackMessage;
-
-    @FindBy(name = "cancel-aia")
-    private WebElement cancelAIAButton;
-
     public LoginPasswordUpdatePage(WebDriver driver) {
         super(driver);
     }
@@ -54,20 +48,8 @@ public class LoginPasswordUpdatePage extends AbstractPage {
         submitButton.click();
     }
 
-    public void cancel() {
-        cancelAIAButton.click();
-    }
-
     public String getError() {
         return loginErrorMessage != null ? loginErrorMessage.getText() : null;
-    }
-
-    public String getFeedbackMessage() {
-        return feedbackMessage.getText();
-    }
-
-    public boolean isCancelDisplayed() {
-        return cancelAIAButton.isDisplayed();
     }
 
     @Override
