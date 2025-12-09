@@ -22,10 +22,9 @@ public class ChromeHeadlessWebDriverSupplier extends AbstractWebDriverSupplier {
                 "--ignore-certificate-errors",
                 "--disable-dev-shm-usage",
                 "--remote-allow-origins=*",
-                "--no-sandbox",
-                "--verbose",
-                "--log-path=/tmp/chromedriver.log"
+                "--no-sandbox"
         );
+        options.setCapability(ChromeOptions.LOGGING_PREFS, options);
 
         String binary = BinaryResolver.resolveChromeBinary();
         if (binary != null) {
