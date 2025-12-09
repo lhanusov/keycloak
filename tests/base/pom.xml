@@ -138,6 +138,8 @@
                     <systemPropertyVariables>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                         <java.util.concurrent.ForkJoinPool.common.threadFactory>io.quarkus.bootstrap.forkjoin.QuarkusForkJoinWorkerThreadFactory</java.util.concurrent.ForkJoinPool.common.threadFactory>
+                        <webdriver.chrome.logfile>/tmp/chromedriver.log</webdriver.chrome.logfile>
+                        <webdriver.chrome.verboseLogging>true</webdriver.chrome.verboseLogging>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
