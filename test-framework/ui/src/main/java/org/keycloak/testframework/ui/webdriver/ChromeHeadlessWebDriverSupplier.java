@@ -21,11 +21,10 @@ public class ChromeHeadlessWebDriverSupplier extends AbstractWebDriverSupplier {
                 "--window-size=1920,1200",
                 "--ignore-certificate-errors",
                 "--disable-dev-shm-usage",
+                "--remote-allow-origins=*",
                 "--no-sandbox",
                 "--verbose",
-                "--log-path=/tmp/chromedriver.log",
-                "--remote-allow-origins=*",
-                "--ignore-certificate-errors"
+                "--log-path=/tmp/chromedriver.log"
         );
 
         String binary = BinaryResolver.resolveChromeBinary();
