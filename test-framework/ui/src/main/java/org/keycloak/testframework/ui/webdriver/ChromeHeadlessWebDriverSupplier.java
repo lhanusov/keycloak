@@ -16,7 +16,7 @@ public class ChromeHeadlessWebDriverSupplier extends AbstractWebDriverSupplier {
         ChromeOptions options = new ChromeOptions();
         setCommonCapabilities(options);
         options.addArguments(
-                "--headless",
+                "--headless=new",
                 "--disable-gpu",
                 "--window-size=1920,1200",
                 "--ignore-certificate-errors",
@@ -24,7 +24,8 @@ public class ChromeHeadlessWebDriverSupplier extends AbstractWebDriverSupplier {
                 "--no-sandbox",
                 "--verbose",
                 "--log-path=/tmp/chromedriver.log",
-                "--remote-allow-origins=*"
+                "--remote-allow-origins=*",
+                "--ignore-certificate-errors"
         );
 
         String binary = BinaryResolver.resolveChromeBinary();
