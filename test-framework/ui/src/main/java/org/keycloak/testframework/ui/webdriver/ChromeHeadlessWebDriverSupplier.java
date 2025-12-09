@@ -20,7 +20,8 @@ public class ChromeHeadlessWebDriverSupplier extends AbstractWebDriverSupplier {
                 "--disable-gpu",
                 "--window-size=1920,1200",
                 "--ignore-certificate-errors",
-                "--disable-dev-shm-usage"
+                "--disable-dev-shm-usage",
+                "--no-sandbox"
         );
 
         String binary = BinaryResolver.resolveChromeBinary();
