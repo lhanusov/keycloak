@@ -28,6 +28,9 @@ public class ChromeHeadlessWebDriverSupplier extends AbstractWebDriverSupplier {
             options.setBinary(binary);
         }
 
+        options.addArguments("--verbose --log-path=/tmp/chromedriver.log");
+
+
         return new ChromeDriver(options);
     }
 }

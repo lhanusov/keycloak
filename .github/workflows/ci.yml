@@ -50,7 +50,7 @@ jobs:
     timeout-minutes: 75
     strategy:
       matrix:
-        browser: [chrome, firefox]
+        browser: [chrome, chrome-headless, firefox, firefox-headless]
       fail-fast: false
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
@@ -60,7 +60,7 @@ jobs:
         uses: ./.github/actions/integration-test-setup
 
       - uses: ./.github/actions/install-chrome
-        if: matrix.browser == 'chrome'
+        if: matrix.browser == 'chrome' || matrix.browser == 'chrome-headless'
 
       - run: echo ${{ env.CHROMEWEBDRIVER }}
 
@@ -75,5 +75,5 @@ jobs:
         with:
           job-name: Forms IT
 
-      - run: cat chromedriver.log
+      - run: cat /tmp/chromedriver.log
         if: always()

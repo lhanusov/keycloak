@@ -21,8 +21,7 @@ public class ChromeWebDriverSupplier extends AbstractWebDriverSupplier {
             options.setBinary(binary);
         }
 
-        System.setProperty("webdriver.chrome.logfile", "chromedriver.log");
-        System.setProperty("webdriver.chrome.verboseLogging", "true");
+        options.addArguments("--verbose --log-path=/tmp/chromedriver.log");
 
         return new ChromeDriver(options);
     }
