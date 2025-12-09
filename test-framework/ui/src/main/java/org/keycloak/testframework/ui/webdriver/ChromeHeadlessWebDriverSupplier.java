@@ -21,7 +21,10 @@ public class ChromeHeadlessWebDriverSupplier extends AbstractWebDriverSupplier {
                 "--window-size=1920,1200",
                 "--ignore-certificate-errors",
                 "--disable-dev-shm-usage",
-                "--no-sandbox"
+                "--no-sandbox",
+                "--verbose",
+                "--log-path=/tmp/chromedriver.log",
+                "--remote-allow-origins=*"
         );
 
         String binary = BinaryResolver.resolveChromeBinary();
@@ -29,7 +32,7 @@ public class ChromeHeadlessWebDriverSupplier extends AbstractWebDriverSupplier {
             options.setBinary(binary);
         }
 
-        options.addArguments("--verbose --log-path=/tmp/chromedriver.log");
+        options.addArguments("");
 
 
         return new ChromeDriver(options);
