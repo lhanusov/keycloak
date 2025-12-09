@@ -16,6 +16,12 @@ public class FirefoxHeadlessWebDriverSupplier extends AbstractWebDriverSupplier 
         FirefoxOptions options = new FirefoxOptions();
         setCommonCapabilities(options);
         options.addArguments("-headless");
+
+        String binary = BinaryResolver.resolveFirefoxBinary();
+        if (binary != null) {
+            options.setBinary(binary);
+        }
+
         return new FirefoxDriver(options);
     }
 }

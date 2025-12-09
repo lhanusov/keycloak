@@ -15,6 +15,15 @@ public class ChromeWebDriverSupplier extends AbstractWebDriverSupplier {
     public WebDriver getWebDriver() {
         ChromeOptions options = new ChromeOptions();
         setCommonCapabilities(options);
+
+        String binary = BinaryResolver.resolveChromeBinary();
+        if (binary != null) {
+            options.setBinary(binary);
+        }
+
+        System.setProperty("webdriver.chrome.logfile", "chromedriver.log");
+        System.setProperty("webdriver.chrome.verboseLogging", "true");
+
         return new ChromeDriver(options);
     }
 }
