@@ -18,6 +18,8 @@ public class FirefoxWebDriverSupplier extends AbstractWebDriverSupplier {
         setCommonCapabilities(options);
 
         options.addPreference("extensions.update.enabled", "false");
+        options.addPreference("app.update.enabled", "false");
+        options.addPreference("app.update.auto", "false");
 
 //        String binary = BinaryResolver.resolveFirefoxBinary();
 //        if (binary != null) {
