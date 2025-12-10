@@ -25,11 +25,11 @@ public class ChromeWebDriverSupplier extends AbstractWebDriverSupplier {
                 "--remote-allow-origins=*",
                 "--no-sandbox"
         );
-
-        String binary = BinaryResolver.resolveChromeBinary();
-        if (binary != null) {
-            options.setBinary(binary);
-        }
+//
+//        String binary = BinaryResolver.resolveChromeBinary();
+//        if (binary != null) {
+//            options.setBinary(binary);
+//        }
 
         return new ChromeDriver(options);
     }

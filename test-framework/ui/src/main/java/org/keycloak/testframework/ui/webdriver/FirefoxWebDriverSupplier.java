@@ -16,10 +16,10 @@ public class FirefoxWebDriverSupplier extends AbstractWebDriverSupplier {
         FirefoxOptions options = new FirefoxOptions();
         setCommonCapabilities(options);
 
-        String binary = BinaryResolver.resolveFirefoxBinary();
-        if (binary != null) {
-            options.setBinary(binary);
-        }
+//        String binary = BinaryResolver.resolveFirefoxBinary();
+//        if (binary != null) {
+//            options.setBinary(binary);
+//        }
 
         return new FirefoxDriver(options);
     }
