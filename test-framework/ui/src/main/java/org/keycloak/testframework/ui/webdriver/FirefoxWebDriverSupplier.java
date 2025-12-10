@@ -3,7 +3,9 @@ package org.keycloak.testframework.ui.webdriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxDriverLogLevel;
+import org.openqa.selenium.firefox.FirefoxDriverService;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.GeckoDriverService;
 
 public class FirefoxWebDriverSupplier extends AbstractWebDriverSupplier {
 
@@ -16,7 +18,7 @@ public class FirefoxWebDriverSupplier extends AbstractWebDriverSupplier {
     public WebDriver getWebDriver() {
         FirefoxOptions options = new FirefoxOptions();
         setCommonCapabilities(options);
-
+        options.addArguments("-headless");
         options.addPreference("extensions.update.enabled", "false");
         options.addPreference("app.update.enabled", "false");
         options.addPreference("app.update.auto", "false");
@@ -25,8 +27,10 @@ public class FirefoxWebDriverSupplier extends AbstractWebDriverSupplier {
 //        if (binary != null) {
 //            options.setBinary(binary);
 //        }
-        options.setLogLevel(FirefoxDriverLogLevel.TRACE);
 
-        return new FirefoxDriver(options);
+        FirefoxDriverService service =
+                new GeckoDriverService.Builder().withLogLevel(FirefoxDriverLogLevel.TRACE).withLogOutput(System.out).build();
+
+        return new FirefoxDriver(service, options);
     }
 }

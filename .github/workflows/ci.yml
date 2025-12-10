@@ -76,4 +76,4 @@ jobs:
           job-name: Forms IT
 
       - run: cat /tmp/chromedriver.log
-        if: always()
+        if: matrix.browser == 'chrome' || matrix.browser == 'chrome-headless'
