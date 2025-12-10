@@ -16,12 +16,20 @@ public class ChromeWebDriverSupplier extends AbstractWebDriverSupplier {
         ChromeOptions options = new ChromeOptions();
         setCommonCapabilities(options);
 
+        options.addArguments(
+                "--headless=new",
+                "--disable-gpu",
+                "--window-size=1920,1200",
+                "--ignore-certificate-errors",
+                "--disable-dev-shm-usage",
+                "--remote-allow-origins=*",
+                "--no-sandbox"
+        );
+
         String binary = BinaryResolver.resolveChromeBinary();
         if (binary != null) {
             options.setBinary(binary);
         }
-
-        options.addArguments("--verbose --log-path=/tmp/chromedriver.log");
 
         return new ChromeDriver(options);
     }

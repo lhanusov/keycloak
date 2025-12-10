@@ -24,15 +24,11 @@ public class ChromeHeadlessWebDriverSupplier extends AbstractWebDriverSupplier {
                 "--remote-allow-origins=*",
                 "--no-sandbox"
         );
-        options.setCapability(ChromeOptions.LOGGING_PREFS, options);
 
         String binary = BinaryResolver.resolveChromeBinary();
         if (binary != null) {
             options.setBinary(binary);
         }
-
-        options.addArguments("");
-
 
         return new ChromeDriver(options);
     }
