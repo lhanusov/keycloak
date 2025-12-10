@@ -2,6 +2,7 @@ package org.keycloak.testframework.ui.webdriver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxDriverLogLevel;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class FirefoxWebDriverSupplier extends AbstractWebDriverSupplier {
@@ -16,12 +17,13 @@ public class FirefoxWebDriverSupplier extends AbstractWebDriverSupplier {
         FirefoxOptions options = new FirefoxOptions();
         setCommonCapabilities(options);
 
-        options.addArguments("--extensions.update.enabled=false");
+        options.addPreference("extensions.update.enabled", "false");
 
 //        String binary = BinaryResolver.resolveFirefoxBinary();
 //        if (binary != null) {
 //            options.setBinary(binary);
 //        }
+        options.setLogLevel(FirefoxDriverLogLevel.TRACE);
 
         return new FirefoxDriver(options);
     }
