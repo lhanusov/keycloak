@@ -25,10 +25,10 @@ public class ChromeHeadlessWebDriverSupplier extends AbstractWebDriverSupplier {
                 "--no-sandbox"
         );
 
-        String binary = BinaryResolver.resolveChromeBinary();
-        if (binary != null) {
-            options.setBinary(binary);
-        }
+//        String binary = BinaryResolver.resolveChromeBinary();
+//        if (binary != null) {
+//            options.setBinary(binary);
+//        }
 
         return new ChromeDriver(options);
     }
