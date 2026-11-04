@@ -1,5 +1,7 @@
 ![Keycloak](https://github.com/keycloak/keycloak-misc/blob/main/logo/logo.svg)
 
+About
+
 ![GitHub Release](https://img.shields.io/github/v/release/keycloak/keycloak?label=latest%20release)
 [![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/6818/badge)](https://bestpractices.coreinfrastructure.org/projects/6818)
 [![CLOMonitor](https://img.shields.io/endpoint?url=https://clomonitor.io/api/projects/cncf/keycloak/badge)](https://clomonitor.io/projects/cncf/keycloak)
